@@ -1,0 +1,16 @@
+alpha:
+- 0.2
+- 0.8
+dim_embedding: 128
+dropout: 0.5
+filter_sizes: 1,2,4,8,16,32
+mlp_linears: 80,64,32,16
+fine_tune: false
+gamma: 3
+loss: FL
+lr: 0.0001
+num_filter: 128
+reg: 0.0
+static: false
+vectors: null
+vocab_size: 28

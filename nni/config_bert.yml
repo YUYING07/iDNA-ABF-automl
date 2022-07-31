@@ -1,0 +1,19 @@
+experimentName: PL_NNI_test
+experimentWorkingDirectory: ~/iDNA-ABF-automl/nni-experiments
+trialCommand: python3 pl_nni_train_bert.py
+trialCodeDirectory: .
+trialGpuNumber: 2
+#maxTrialNumPerGpu: 4
+trialConcurrency: 4
+maxTrialNumber: 1000
+maxTrialDuration: 2h
+maxExperimentDuration: 60h
+tuner:
+  name: TPE
+  classArgs:
+    optimize_mode: maximize
+trainingService:
+  platform: local
+  useActiveGpu: true
+  gpuIndices: 0,1,2,3
+search_space_file: ./search_space_bert.json

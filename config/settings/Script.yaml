@@ -1,0 +1,28 @@
+add_special_tokens: False
+#checkpoint: '../log/test_CKPT.ckpt'
+checkpoint: null
+command: script-test
+k_fold: 5
+log_dir: '/mnt/sdb/home/yyy/iDNA-ABF-automl/log/'
+max_length: 120
+onehot: True
+model: 'FusionDNAbert'
+model_hparams: 'FusionDNAbert.yaml'
+auto_ml: false
+nni_metric: 'F1'
+output_dir: null
+padding: 'max_length'
+path_visual_data: null
+project_name: fusion
+proportion: null
+path_pretrain_model: null # '../Rostlab_prot_t5_xl_uniref50'
+
+path_train_data: '../data/train.tsv'
+path_valid_data: '../data/test.tsv'
+path_test_data: '../data/test.tsv'
+
+
+return_tensors: 'pt'
+seed: 9999
+train_mode: 'train'
+multi_type: 'product'

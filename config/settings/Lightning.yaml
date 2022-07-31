@@ -1,0 +1,27 @@
+accelerator: gpu
+auto_select_gpus: true
+batch_size: 32
+benchmark: true # false
+#check_val_every_n_epochs: 1
+cuda: true
+fast_dev_run: false # stop training after dev run if true
+gpus: [ 0,  1 ]
+log_every_n_steps: 1
+#log_gpu_memory: all # is deprecated in v1.5 and will be removed in v1.7
+max_epochs: 60
+num_class: 2
+num_nodes: 1
+#num_sanity_val_steps: 1
+num_workers: 0
+optimizer: Adam # choices=['Adam', 'SGD', 'Adagrad', 'RMSprop']
+precision: 32
+#progress_bar_refresh_rate: 1
+stochastic_weight_avg: true # is deprecated in v1.5 and will be removed in v1.7
+strategy: null
+#strategy: ddp
+#strategy: dp
+#sync_batchnorm: true
+#val_check_interval: 1
+#val_check_interval: 0.25
+#val_check_interval: 20
+#weights_summary: full # is deprecated in v1.5 and will be removed in v1.7
