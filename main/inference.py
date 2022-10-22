@@ -136,5 +136,5 @@ def test_cnn():
 
 
 if __name__ == '__main__':
-    test_cnn()
-    # test_mm()
+    # test_cnn()
+    test_mm()

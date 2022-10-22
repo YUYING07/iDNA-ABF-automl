@@ -28,8 +28,8 @@ def run_training(args):
     model = SeqLightningModule(args)
     logger = TensorBoardLogger(save_dir=os.path.join(os.environ['NNI_OUTPUT_DIR'], 'tensorboard'), name='')
     checkpoint_callback = ModelCheckpoint(
-        filename='{epoch:02d},{step:03d},{val_SE_epoch:.2f},{val_SP_epoch:.2f},{val_F1_epoch:.2f},{val_AUC_epoch:.2f}',
-        monitor='val_F1_epoch', save_top_k=1, mode='max')
+        filename='{epoch:02d},{step:03d},{val_ACC_epoch:.2f},{val_SE_epoch:.2f},{val_SP_epoch:.2f},{val_F1_epoch:.2f},{val_AUC_epoch:.2f}',
+        monitor='val_ACC_epoch', save_top_k=1, mode='max')
     early_stop_callback = EarlyStopping(monitor="val_AUC_epoch", min_delta=0.01, patience=100, verbose=False,
                                         mode="max")
     trainer = pl.Trainer.from_argparse_args(args, logger=logger,
@@ -50,19 +50,22 @@ if __name__ == '__main__':
     for i in range(gpu_num):
         gpu = pynvml.nvmlDeviceGetHandleByIndex(i)
         meminfo = pynvml.nvmlDeviceGetMemoryInfo(gpu)
+        # print(meminfo)
         memory_free = meminfo.free / 1024 ** 3
-        if memory_free > 3:
+        # print(memory_free)
+        if memory_free > 12:
             available_gpu_list.append([i])
             gpu_memory_list.append(memory_free)
     args = load_config.load_default_args('fusion')
-    args.project_name = 'PL_NNI_fusion'
-
-    # args.path_train_data = '../data/DNA_MS/tsv/4mC/4mC_C.equisetifolia/train.tsv'
-    # args.path_valid_data= '../data/DNA_MS/tsv/4mC/4mC_C.equisetifolia/test.tsv'
-    # args.path_test_data= '../data/DNA_MS/tsv/4mC/4mC_C.equisetifolia/test.tsv'
+    args.project_name = '4mC_C.equisetifolia'
+    args.max_epochs = 15
+    args.path_train_data = '../data/DNA_MS/tsv/4mC/4mC_C.equisetifolia/train.tsv'
+    args.path_valid_data= '../data/DNA_MS/tsv/4mC/4mC_C.equisetifolia/test.tsv'
+    args.path_test_data= '../data/DNA_MS/tsv/4mC/4mC_C.equisetifolia/test.tsv'
     args.gpus = available_gpu_list[gpu_memory_list.index(max(gpu_memory_list))]
+    print('')
     args.auto_ml = True
-    args.nni_metric = 'AUC'
+    args.nni_metric = 'ACC'
     print('=' * 50, 'script start running', '=' * 50)
     print('[default args]:', args)
     tuner_params = nni.get_next_parameter()

@@ -3,7 +3,7 @@ add_special_tokens: False
 checkpoint: null
 command: script-test
 k_fold: 5
-log_dir: '/mnt/sdb/home/yyy/iDNA-ABF-automl/log/'
+log_dir: '/mnt/sdb/home/jjr/iDNA-ABF-automl/log/'
 max_length: 41
 onehot: False
 model: 'ClassificationDNAbert'
