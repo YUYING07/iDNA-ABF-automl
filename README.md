@@ -2,7 +2,8 @@
 
 This repository is a nni version and base on pytorchlighting to the model [iDNA-ABF](https://github.com/FakeEnd/iDNA_ABF)
 
-We do not use adversarial training in this repository, so the results may be little lower than the metrics in the paper, but they are still higher than the other methods.
+**We do not use adversarial training in this repository, so the results may be little lower than the metrics in the paper, but they are still higher than the other methods. ** It just make easy for you to reproduce some results, and we haven't adjust parameters carefully. If you want the original parameters, please send email to me and I will give a version to you./ Or I will put it into google drive in the future. 
+
 
 ## How to use
 ### main
@@ -331,7 +332,7 @@ Mention: some problems lead to the interrupt during the training process, this i
 
 
 
-###  6mA_R.chinensis (rVXQG)
+###  6mA_T.thermophile (rVXQG)
 
 ```json
 {
@@ -352,28 +353,6 @@ Mention: some problems lead to the interrupt during the training process, this i
 |  | 0.95  | 0.81 |  |   |         |
 
 Mention: some problems lead to the interrupt during the training process, this is the result before interrupt.
-
-
-
-###  6mA_D.melanogaster (ICjHp)
-
-```json
-{
-    "batch_size": 128,
-    "lr": 0.0001,
-    "dropout": 0.3,
-    "alpha": [
-        0.4,
-        0.6
-    ]
-}
-```
-
-| ACC      | AUC      | MCC     | F1       | F2       | F3      |
-| -------- | -------- | ------- | -------- | -------- | ------- |
-| 0.92109 | 0.969753 | 0.842273 | 0.920501 | 0.916392 | 0.91503 |
-| Q        | SE       | SP      | PPV      | NPV      |         |
-| 0.92109 | 0.913673  | 0.928508 | 0.927431 | 0.914935  |         |
 
 
 
