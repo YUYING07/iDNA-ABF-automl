@@ -2,7 +2,9 @@
 
 This repository is a nni version and base on pytorchlighting to the model [iDNA-ABF](https://github.com/FakeEnd/iDNA_ABF)
 
-**We do not use adversarial training in this repository, so the results may be little lower than the metrics in the paper, but they are still higher than the other methods. ** It just make easy for you to reproduce some results, and we haven't adjust parameters carefully. If you want the original parameters, please send email to me and I will give a version to you./ Or I will put it into google drive in the future. 
+**We do not use adversarial training in this repository, so the results may be little lower than the metrics in the paper, but they are still higher than the other methods. ** It just make easy for you to reproduce some results, and we haven't adjust parameters carefully. If you want the original parameters, please send email to me and I will give a version to you.
+
+Now, We have provided a base parameters by One drive, you can download by this [One drive share](https://portland-my.sharepoint.com/personal/yingyinyu3-c_my_cityu_edu_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fyingyinyu3%2Dc%5Fmy%5Fcityu%5Fedu%5Fhk%2FDocuments%2FiDNA%5FABF%5Fmodel%2FiDNA%5FABF%5Freproduce&ga=1)
 
 
 ## How to use
